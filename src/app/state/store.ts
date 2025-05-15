@@ -1,18 +1,16 @@
-import { patchState, signalStore, withMethods, withState } from '@ngrx/signals';
+import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { BlogPost } from './models';
 import { DbService } from './db.service';
-import { Inject, inject } from '@angular/core';
+import { computed, Inject, inject } from '@angular/core';
 
 type BlogState = {
   blogData: BlogPost[];
-  isLoading: boolean;
-  filter: { query: string; order: 'asc' | 'desc' };
+  query: string;
 };
 
 const initialBlogState: BlogState = {
   blogData: [],
-  isLoading: false,
-  filter: { query: '', order: 'asc' },
+  query: ''
 };
 
 export const BlogStore = signalStore(
@@ -28,6 +26,26 @@ export const BlogStore = signalStore(
         patchState(store, (state: BlogState) => ({
           blogData: blogData,
         }));
+      },
+      async updateQueryFilter(query: string): Promise<void> {
+        patchState(store, (state: BlogState) => ({
+            query: query
+        }))
       }
+  })),
+  withComputed((
+    {
+      blogData,
+      query,
+    }
+  ) => ({
+    filteredBlogData: computed(() => {
+      const data: BlogPost[] = blogData().filter((el: BlogPost) => 
+        el.name.toLowerCase().includes(query().toLowerCase()) ||
+        el.level.toLowerCase().includes(query().toLowerCase()) ||
+        el.reference.toLowerCase().includes(query().toLowerCase())
+      );
+      return data;
+    })
   })),
 );

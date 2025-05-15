@@ -1,7 +1,15 @@
 <app-feature-container>
-    <input
-        type="text" 
-    />
-    <p>{{ blogStore.blogData() | json }}</p>
+    <form [formGroup]="blogForm">
+        <div class="flex flex-row gap-x-2">
+            <p>Recherche avec les mots clés</p>
+            <input
+                class="border border-dashed"
+                formControlName="query"
+                type="text"
+                (input)="onQueryInput()" 
+            />
+        </div>
+    </form>
+    <p>{{ blogStore.filteredBlogData() | json }}</p>
 </app-feature-container>
 
