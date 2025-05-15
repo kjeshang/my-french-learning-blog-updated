@@ -1,39 +1,40 @@
 <app-feature-container>
-    <div class="m-2">
-        <form [formGroup]="blogForm">
-        <div class="flex flex-row gap-x-2">
-            <div>
-                <label class="block text-gray-700 text-sm font-bold mb-1">Recherche avec les mots clés</label>
-                <input
-                    class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    formControlName="query"
-                    type="text"
-                    (input)="onQueryInput()" 
-                />
-            </div>
+    <div class="m-2 py-3 grid grid-cols-12 gap-4">
+        <div class="col-span-2">
+            <form [formGroup]="blogForm">
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Recherche avec les mots clés</label>
+                    <input
+                        class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        formControlName="query" type="text" (input)="onQueryInput()" />
+                </div>
+            </form>
         </div>
-    </form>
-    <div class="grid grid-cols-4 gap-4">
-        @for(item of blogStore.filteredBlogData(); track $index) {
-            <div class="max-w-sm rounded overflow-hidden shadow-lg">
+
+        <div class="col-span-10 flex flex-col space-y-4">
+            @for(item of blogStore.filteredBlogData(); track $index) {
+            <div class="max-w-full overflow-hidden border-1 rounded">
                 <div class="px-6 py-4">
-                    <div class="font-bold text-xl mb-2">{{ item.name }}<span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{ item.level }}</span></div>
-                    <p class="text-gray-700 text-base">
+                    <div class="flex flex-row justify-between space-x-2">
+                        <div class="flex justify-start">
+                            <span
+                            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{
+                            item.level }}
+                        </span>
+                        <span class="font-bold text-xl mb-2">{{ item.name }}</span>
+                        </div>
+                        <div class="flex justify-start mt-1">
+                            <span class="text-gray-600"> {{ item.date }} </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 text-base italic">
                         {{ item.reference }}
                     </p>
-                </div>
-                <div class="px-6 pb-2">
-                    <div class="flex flex-row justify-evenly">
-                        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#{{ item.level }}</span>
-                        <button>
-                            Open Blog
-                        </button>
-                    </div>
+                    
                 </div>
             </div>
-        }
+            }
+        </div>
     </div>
     <p>{{ blogStore.filteredBlogData() | json }}</p>
-    </div>
 </app-feature-container>
-
