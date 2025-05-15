@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FeatureContainerComponent } from "../../../shared/page-components/feature-container/feature-container.component";
-import { BlogStore } from '../../../state/store';
+import { BlogStore } from '../../../state/blog.store';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 

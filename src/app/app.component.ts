@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { BlogStore } from './state/store';
+import { BlogStore } from './state/blog.store';
 
 @Component({
   selector: 'app-root',
