@@ -1,7 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { FeatureContainerComponent } from '../../../shared/page-components/feature-container/feature-container.component';
 import { CommonModule } from '@angular/common';
-import { BlogStore } from '../../../state/store';
 
 @Component({
   selector: 'app-home-page',
@@ -10,5 +9,5 @@ import { BlogStore } from '../../../state/store';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-  blogStore =inject(BlogStore);
+  
 }
