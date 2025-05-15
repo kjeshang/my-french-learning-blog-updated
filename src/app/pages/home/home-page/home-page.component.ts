@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { FeatureContainerComponent } from '../../../shared/page-components/feature-container/feature-container.component';
-import { DbService } from '../../../state/db.service';
 import { CommonModule } from '@angular/common';
 import { BlogStore } from '../../../state/store';
 
