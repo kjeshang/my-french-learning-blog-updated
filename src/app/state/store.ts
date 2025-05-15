@@ -1,7 +1,7 @@
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
 import { BlogPost } from './models';
 import { DbService } from './db.service';
-import { computed, Inject, inject } from '@angular/core';
+import { computed, inject } from '@angular/core';
 
 type BlogState = {
   blogData: BlogPost[];
