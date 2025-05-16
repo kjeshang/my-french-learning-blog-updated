@@ -2,6 +2,9 @@ import { patchState, signalStore, withComputed, withMethods, withState } from '@
 import { BlogPost } from './models';
 import { DbService } from './db.service';
 import { computed, inject } from '@angular/core';
+import { BlogPostView } from '../pages/blog/view-models';
+import { chain } from 'lodash';
+import { DateTime } from "luxon";
 
 type BlogState = {
   blogData: BlogPost[];
@@ -40,11 +43,23 @@ export const BlogStore = signalStore(
     }
   ) => ({
     filteredBlogData: computed(() => {
-      const data: BlogPost[] = blogData().filter((el: BlogPost) => 
-        el.name.toLowerCase().includes(query().toLowerCase()) ||
-        el.level.toLowerCase().includes(query().toLowerCase()) ||
-        el.reference.toLowerCase().includes(query().toLowerCase())
-      );
+      const data: BlogPostView[] = chain(blogData())
+      .filter((el: BlogPost) => 
+          el.name.toLowerCase().includes(query().toLowerCase()) ||
+          el.level.toLowerCase().includes(query().toLowerCase()) ||
+          el.reference.toLowerCase().includes(query().toLowerCase())
+      )
+      .map((el: BlogPost) => {
+        const splitDate: string[] = el.date.split("-");
+        const datetimeObject: DateTime = DateTime.fromObject({year: +splitDate[0], month: +splitDate[1], day: +splitDate[2] });
+        return {
+          ...el,
+          formattedDate: datetimeObject.toLocaleString(DateTime.DATE_MED),
+          millisecondsDate: datetimeObject.toMillis()
+        }
+      })
+      .sortBy(['millisecondsDate'],['desc'])
+      .value();
       return data;
     })
   })),
