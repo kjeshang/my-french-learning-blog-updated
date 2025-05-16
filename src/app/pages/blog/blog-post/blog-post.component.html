@@ -1,1 +1,3 @@
-<p>{{ blogStore.selectedBlogPost() | json }}</p>
+<div class="m-3">
+    <markdown class="markdown" [src]="blogStore.selectedBlogPost()?.post" />
+</div>
