@@ -2,7 +2,7 @@
     <div class="m-2 py-3 grid grid-cols-12 gap-4">
         <div class="col-span-3">
             <form [formGroup]="blogForm">
-                <div class="hidden sm:block">
+                <div>
                     <label class="block text-gray-700 text-sm font-bold mb-1">Recherche avec les mots clés</label>
                     <input
                         class="shadow appearance-none border rounded w-full py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -15,8 +15,9 @@
         <div class="col-span-9">
             <div class="flex flex-col space-y-4">
                 @for(item of blogStore.filteredBlogData(); track $index) {
-                <a class="hover:border-2">
-                    <div class="max-w-full overflow-hidden border-1 rounded">
+                <button class="hover:border-2 cursor-auto">
+                    <a href="">
+                        <div class="max-w-full overflow-hidden border-1 rounded">
                         <div class="px-6 py-4">
                             <div class="flex flex-row space-x-2">
                                 <div>
@@ -25,15 +26,16 @@
                                         item.level }}
                                     </span>
                                 </div>
-                                <span class="font-bold text-xl mb-2 max-w-9/12">{{ item.name }}</span>
+                                <span class="font-bold text-xl mb-2 max-w-9/12 text-left">{{ item.name }}</span>
                                 <span class="ml-auto text-gray-600"> {{ item.formattedDate }} </span>
                             </div>
-                            <p class="text-gray-700 text-base italic">
+                            <p class="text-gray-700 text-base italic text-left">
                                 {{ item.reference }}
                             </p>
                         </div>
                     </div>
-                </a>
+                    </a>
+                </button>
                 }
             </div>
         </div>
