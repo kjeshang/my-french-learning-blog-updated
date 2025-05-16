@@ -9,11 +9,13 @@ import { DateTime } from "luxon";
 type BlogState = {
   blogData: BlogPost[];
   query: string;
+  selectedBlogPost: BlogPost | undefined;
 };
 
 const initialBlogState: BlogState = {
   blogData: [],
-  query: ''
+  query: '',
+  selectedBlogPost: undefined
 };
 
 export const BlogStore = signalStore(
@@ -34,7 +36,12 @@ export const BlogStore = signalStore(
         patchState(store, (state: BlogState) => ({
             query: query
         }))
-      }
+      },
+      async updateSelectedBlogPost(selectedBlogPost: BlogPost): Promise<void> {
+        patchState(store, (state: BlogState) => ({
+          selectedBlogPost: selectedBlogPost
+        }))
+      },
   })),
   withComputed((
     {
