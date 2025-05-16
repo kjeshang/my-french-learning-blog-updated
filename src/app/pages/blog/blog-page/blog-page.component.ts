@@ -3,10 +3,13 @@ import { FeatureContainerComponent } from "../../../shared/page-components/featu
 import { BlogStore } from '../../../state/blog.store';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { BlogPost } from '../../../state/models';
+import { BlogPostView } from '../view-models';
+import { BlogPostComponent } from '../blog-post/blog-post.component';
 
 @Component({
   selector: 'app-blog-page',
-  imports: [FeatureContainerComponent, CommonModule, ReactiveFormsModule],
+  imports: [FeatureContainerComponent, CommonModule, ReactiveFormsModule, BlogPostComponent],
   templateUrl: './blog-page.component.html',
   styleUrl: './blog-page.component.scss'
 })
@@ -18,9 +21,14 @@ export class BlogPageComponent {
     query: ['']
   });
 
-  onQueryInput() {
+  onQueryInput(): void {
     const query: string = this.blogForm.get("query")?.value as string;
     this.blogStore.updateQueryFilter(query);
+  }
+
+  onSelectBlogPost(id: number | undefined): void {
+    this.blogStore.updateSelectedBlogPost(id);
+    console.log(this.blogStore.selectedBlogPost());
   }
 
 }

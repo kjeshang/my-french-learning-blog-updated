@@ -8,5 +8,5 @@ export const routes: Routes = [
     },
     {
         path:"blog", component:BlogPageComponent
-    }
+    },
 ];

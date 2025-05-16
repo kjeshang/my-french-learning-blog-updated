@@ -1,5 +1,6 @@
 <app-feature-container>
-    <div class="m-2 py-3 grid grid-cols-12 gap-4">
+    @if(blogStore.selectedBlogPost() === undefined) {
+        <div class="m-2 py-3 grid grid-cols-12 gap-4">
         <div class="col-span-3">
             <form [formGroup]="blogForm">
                 <div>
@@ -15,8 +16,7 @@
         <div class="col-span-9">
             <div class="flex flex-col space-y-4">
                 @for(item of blogStore.filteredBlogData(); track $index) {
-                <button class="hover:border-2 cursor-auto">
-                    <a href="">
+                <button class="hover:border-2 cursor-auto" (click)="onSelectBlogPost(item.id)">
                         <div class="max-w-full overflow-hidden border-1 rounded">
                         <div class="px-6 py-4">
                             <div class="flex flex-row space-x-2">
@@ -34,10 +34,16 @@
                             </p>
                         </div>
                     </div>
-                    </a>
                 </button>
                 }
             </div>
         </div>
     </div>
+    }
+    @else { 
+        <app-blog-post />
+        <button (click)="onSelectBlogPost(undefined)">
+            Go Back
+        </button>
+    }
 </app-feature-container>

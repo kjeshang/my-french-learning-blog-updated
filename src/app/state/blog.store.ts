@@ -3,7 +3,7 @@ import { BlogPost } from './models';
 import { DbService } from './db.service';
 import { computed, inject } from '@angular/core';
 import { BlogPostView } from '../pages/blog/view-models';
-import { chain } from 'lodash';
+import { chain, isNil } from 'lodash';
 import { DateTime } from "luxon";
 
 type BlogState = {
@@ -37,10 +37,16 @@ export const BlogStore = signalStore(
             query: query
         }))
       },
-      async updateSelectedBlogPost(selectedBlogPost: BlogPost): Promise<void> {
+      async updateSelectedBlogPost(id: number | undefined): Promise<void> {
+        if(isNil(id)){
+          patchState(store, (state: BlogState) => ({
+            selectedBlogPost: undefined
+          }));
+        }
+        const selectedBlogPost: BlogPost | undefined = store.blogData().find((el: BlogPost) => el.id === id);
         patchState(store, (state: BlogState) => ({
           selectedBlogPost: selectedBlogPost
-        }))
+        }));
       },
   })),
   withComputed((
@@ -59,13 +65,15 @@ export const BlogStore = signalStore(
       .map((el: BlogPost) => {
         const splitDate: string[] = el.date.split("-");
         const datetimeObject: DateTime = DateTime.fromObject({year: +splitDate[0], month: +splitDate[1], day: +splitDate[2] });
-        return {
+        const result: BlogPostView = {
           ...el,
           formattedDate: datetimeObject.toLocaleString(DateTime.DATE_MED),
           millisecondsDate: datetimeObject.toMillis()
         }
+        return result;
       })
       .sortBy(['millisecondsDate'],['desc'])
+      .reverse()
       .value();
       return data;
     })
