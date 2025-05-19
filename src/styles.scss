@@ -6,6 +6,39 @@ html, body {
     max-width: 100%;
 }
 
-// .markdown h1 {
-//     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-// }
+.markdown h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.markdown h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.markdown blockquote p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.markdown p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.markdown p strong {
+    font-size: 20px;
+}
+
+.markdown ul {
+    margin: 20px;
+}
+
+.markdown ul li {
+    list-style-type: circle;
+}
