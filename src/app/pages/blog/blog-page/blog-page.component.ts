@@ -3,8 +3,6 @@ import { FeatureContainerComponent } from "../../../shared/page-components/featu
 import { BlogStore } from '../../../state/blog.store';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { BlogPost } from '../../../state/models';
-import { BlogPostView } from '../view-models';
 import { BlogPostComponent } from '../blog-post/blog-post.component';
 
 @Component({
