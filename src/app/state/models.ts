@@ -6,3 +6,14 @@ export interface BlogPost {
     reference: string,
     post: string
 }
+
+export interface Certifications {
+    busuu: {
+        name: string;
+        link: string;
+    }[],
+    udemy: {
+        name: string;
+        link: string;
+    }[],
+}

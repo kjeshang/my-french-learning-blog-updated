@@ -12,4 +12,8 @@ export class DbService {
         const data: BlogPost[] = await firstValueFrom(this.http.get<BlogPost[]>(url));
         return data;
     }
+
+    async getCertificationsData(): Promise<any> {
+        
+    }
 }
