@@ -1,10 +1,28 @@
-<div class="flex flex-wrap items-center justify-between bg-gradient-to-r from-blue-400 via-white-500 to-red-400 text-white py-2 sticky w-full top-0">
-    <div class="px-2">
-        <p class="text-3xl font-stretch-condensed font-bold hover:opacity-90">
-            <a routerLink=""><span class="text-shadow-lg">🇫🇷 Le Blog Français de Kunal</span></a>
-        </p>
+<div class="sticky w-full top-0">
+    <div
+        class="flex flex-wrap items-center justify-between bg-gradient-to-r from-blue-400 via-white-500 to-red-400 text-white py-2">
+        <div class="px-2">
+            <p class="text-3xl font-stretch-condensed font-bold hover:opacity-90">
+                <a routerLink=""><span class="text-shadow-lg">🇫🇷 Le Blog Français de Kunal</span></a>
+            </p>
+        </div>
+        <nav class="mt-2 sm:mt-0 sm:block hidden">
+            <ul class="flex flex-row items-center space-x-1 text-left justify-around">
+                <li class="px-2 hover:opacity-90">
+                    <a routerLink="/blog">
+                        <span class="text-lg text-shadow-xs">Blog</span>
+                    </a>
+                </li>
+                <li class="px-2 hover:opacity-90">
+                    <span class="text-lg text-shadow-xs">Histoire</span>
+                </li>
+                <li class="px-2 hover:opacity-90">
+                    <span class="text-lg text-shadow-xs">Données</span>
+                </li>
+            </ul>
+        </nav>
     </div>
-    <nav class="mt-2 sm:mt-0">
+    <div class="block sm:hidden bg-gradient-to-r from-blue-400 via-white-500 to-red-400 text-white pb-1">
         <ul class="flex flex-row items-center space-x-1 text-left justify-around">
             <li class="px-2 hover:opacity-90">
                 <a routerLink="/blog">
@@ -18,5 +36,5 @@
                 <span class="text-lg text-shadow-xs">Données</span>
             </li>
         </ul>
-    </nav>
+    </div>
 </div>
