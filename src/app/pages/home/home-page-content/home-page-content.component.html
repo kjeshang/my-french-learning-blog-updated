@@ -34,7 +34,7 @@
                 <p class="text-3xl text-center mt-2 align-middle">Busuu</p>
             </div>
             <ul class="flex flex-col justify-center items-center space-y-4 py-2 px-2 mt-3">
-                @for(item of certifications.busuu; track $index) {
+                @for(item of blogStore.certificationsData().busuu; track $index) {
                     <li class="text-lg hover:text-slate-800">
                         <a [href]="item.link" target="_blank">{{ item.name }}</a>
                     </li>
@@ -48,7 +48,7 @@
                 <p class="text-3xl text-center mt-2 align-middle">Udemy</p>
             </div>
             <ul class="flex flex-col justify-center items-center space-y-3 py-2 px-2 mt-3">
-                @for(item of certifications.udemy; track $index) {
+                @for(item of blogStore.certificationsData().udemy; track $index) {
                     <li class="hover:text-slate-800">
                         <a [href]="item.link" target="_blank">{{ item.name }}</a>
                     </li>

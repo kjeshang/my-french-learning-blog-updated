@@ -1,5 +1,5 @@
 import { patchState, signalStore, withComputed, withMethods, withState } from '@ngrx/signals';
-import { BlogPost } from './models';
+import { BlogPost, Certifications } from './models';
 import { DbService } from './db.service';
 import { computed, inject } from '@angular/core';
 import { BlogPostView } from '../pages/blog/view-models';
@@ -8,14 +8,16 @@ import { DateTime } from "luxon";
 
 type BlogState = {
   blogData: BlogPost[];
+  certificationsData: Partial<Certifications>;
   query: string;
   selectedBlogPost: BlogPost | undefined;
 };
 
 const initialBlogState: BlogState = {
   blogData: [],
+  certificationsData: {},
   query: '',
-  selectedBlogPost: undefined
+  selectedBlogPost: undefined,
 };
 
 export const BlogStore = signalStore(
@@ -30,6 +32,12 @@ export const BlogStore = signalStore(
         const blogData: BlogPost[] = await db.getBlogPostData();
         patchState(store, (state: BlogState) => ({
           blogData: blogData,
+        }));
+      },
+      async loadCertificationsData(): Promise<void> {
+        const certificationsData: Partial<Certifications> = await db.getCertificationsData();
+        patchState(store, (state: BlogState) => ({
+          certificationsData: certificationsData,
         }));
       },
       async updateQueryFilter(query: string): Promise<void> {
