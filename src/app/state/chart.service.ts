@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BlogPost, PlotlyBarChartData } from "../../state/models";
+import { BlogPost, PlotlyBarChartData } from "./models";
 import { chain } from "lodash";
 
 @Injectable({ providedIn:'root' })

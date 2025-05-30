@@ -11,7 +11,7 @@ import { computed, inject } from '@angular/core';
 import { BlogPostView } from '../pages/blog/view-models';
 import { chain, isNil } from 'lodash';
 import { DateTime } from 'luxon';
-import { BlogChartService } from '../shared/services/chart.service';
+import { BlogChartService } from './chart.service';
 
 type BlogState = {
   blogData: BlogPost[];
