@@ -13,7 +13,9 @@ export class BlogChartService {
                 const result: {level: string, count:number} = {level, count};
                 return result;
             })
-            .value()
+            .sortBy(['count','skill'])
+            .reverse()
+            .value();
         
         const chartData: PlotlyBarChartData = {
             x:data.map((item: {level: string, count:number}) => item.level),
