@@ -38,6 +38,7 @@ export class PlotlyBarChartComponent implements OnChanges {
       displayModeBar: false,
       responsive: true,
     },
+    automargin:true,
   };
 
   ngOnChanges(changes: SimpleChanges): void {

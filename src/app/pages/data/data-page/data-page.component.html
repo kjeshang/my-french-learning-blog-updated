@@ -1,5 +1,10 @@
 <app-feature-container>
-    <div class="mt-2">
-        <app-plotly-bar-chart [inputData]="blogStore.levelBarChartData()"></app-plotly-bar-chart>
+    <div class="my-2 py-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="relative -z-1">
+            <app-plotly-bar-chart [inputData]="blogStore.levelBarChartData()"></app-plotly-bar-chart>
+        </div>
+        <div class="relative -z-1">
+            <app-plotly-bar-chart [inputData]="blogStore.levelBarChartData()"></app-plotly-bar-chart>
+        </div>
     </div>
 </app-feature-container>

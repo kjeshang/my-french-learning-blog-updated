@@ -98,7 +98,7 @@ export const BlogStore = signalStore(
       levelBarChartData: computed(() => {
         return chartService.getLevelBarChart(
           blogData(),
-          'Distribution Blog Posts per Language Level',
+          'Blog Posts Level',
           400
         );
       }),
