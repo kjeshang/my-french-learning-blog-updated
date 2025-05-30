@@ -17,3 +17,10 @@ export interface Certifications {
         link: string;
     }[],
 }
+
+export interface PlotlyBarChartData {
+    x: string[];
+    y: number[];
+    title: string;
+    height: number;
+}

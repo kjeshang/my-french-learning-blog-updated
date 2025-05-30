@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import * as PlotlyJS from 'plotly.js-dist-min';
 import { PlotlyModule } from 'angular-plotly.js';
-import { PlotlyBarChartData } from '../plotly.models';
+import { PlotlyBarChartData } from '../../../state/models';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
