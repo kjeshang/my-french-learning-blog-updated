@@ -123,7 +123,20 @@ export const BlogStore = signalStore(
         return chartService.getReferencePieChartData(
           blogData(),
           'Blog Posts Reference',
-          ["The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)","Learn French - Intermediate level : Master The Past Tenses by Yohann Coussot (Udemy)","Raston's TEF Canada Expression Ecrite 2025"],
+          [
+            {
+              reference:"The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)",
+              label:"The Complete French Course :Learn French<br> - Beginners by Yohann Coussot (Udemy)"
+            },
+            {
+              reference:"Learn French - Intermediate level : Master The Past Tenses by Yohann Coussot (Udemy)",
+              label:"Learn French - Intermediate level :<br>Master The Past Tenses by Yohann Coussot (Udemy)"
+            },
+            {
+              reference:"Raston's TEF Canada Expression Ecrite 2025",
+              label:"Raston's TEF Canada Expression Ecrite 2025",
+            }
+          ],
         );
       }),
     })

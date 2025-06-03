@@ -72,20 +72,21 @@ export class BlogChartService {
     /**
      * Create pie chart data to view proportion of blog posts by reference (i.e., source).
      */
-    getReferencePieChartData(blogData: BlogPost[], title: string, uniqueReference: string[]) {
-        let data: {reference: string, count: number}[] = [];
+    getReferencePieChartData(blogData: BlogPost[], title: string, uniqueReference: {reference: string, label: string}[]) {
+        let data: {reference: string, count: number, label: string}[] = [];
         for(let i=0; i < uniqueReference.length; i++) {
-            const item: string = uniqueReference[i];
-            const result: {reference: string, count: number} = {
-                reference: item,
-                count: blogData.filter((el: BlogPost) => el.reference.includes(item)).length
+            const item = uniqueReference[i];
+            const result: {reference: string, count: number, label: string} = {
+                reference: item.reference,
+                count: blogData.filter((el: BlogPost) => el.reference.includes(item.reference)).length,
+                label: item.label,
             };
             data.push(result);
         }
         data = chain(data).sortBy(['count','reference']).reverse().value();
 
         const chartData: PlotlyPieChartData = {
-            labels: data.map(item => item.reference),
+            labels: data.map(item => item.label),
             values: data.map(item => item.count),
             title: title
         }
