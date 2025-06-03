@@ -106,16 +106,16 @@ export const BlogStore = signalStore(
       referenceBarChartData: computed(() => {
         return chartService.getReferenceBarChartData(
           blogData(),
-          'Blog Post Reference',
+          'Blog Posts Reference',
           400,
           'h',
           ["The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)","Learn French - Intermediate level : Master The Past Tenses by Yohann Coussot (Udemy)","Raston's TEF Canada Expression Ecrite 2025"],
           {
-            l:600,
+            l:550,
             r:50,
             b: 50,
             t: 50,
-            pad: 10
+            pad: 4
           },
         );
       }),
