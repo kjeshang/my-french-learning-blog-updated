@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BlogPost, PlotlyBarChartData, PlotlyBarChartMargin } from "./models";
+import { BlogPost, PlotlyBarChartData, PlotlyBarChartMargin, PlotlyPieChartData } from "./models";
 import { chain, uniq } from "lodash";
 
 @Injectable({ providedIn:'root' })
@@ -34,21 +34,21 @@ export class BlogChartService {
      * Create bar chart data to view distribution of blog posts by reference (i.e., source).
      */
     getReferenceBarChartData(blogData: BlogPost[], title: string, height: number, orientation: 'v' | 'h', uniqueReference: string[], margin?: PlotlyBarChartMargin) {
-        let finalData: {reference: string, count: number}[] = [];
+        let data: {reference: string, count: number}[] = [];
         for(let i=0; i < uniqueReference.length; i++) {
             const item: string = uniqueReference[i];
             const result: {reference: string, count: number} = {
                 reference: item,
                 count: blogData.filter((el: BlogPost) => el.reference.includes(item)).length
             };
-            finalData.push(result);
+            data.push(result);
         }
-        finalData = chain(finalData).sortBy(['count','reference']).reverse().value();
+        data = chain(data).sortBy(['count','reference']).reverse().value();
         
         if(orientation === 'h') {
             const chartData: PlotlyBarChartData = {
-                x:finalData.map((item: {reference: string, count:number}) => item.count),
-                y:finalData.map((item: {reference: string, count:number}) => item.reference),
+                x:data.map((item: {reference: string, count:number}) => item.count),
+                y:data.map((item: {reference: string, count:number}) => item.reference),
                 title: title,
                 height: height,
                 orientation: orientation,
@@ -58,8 +58,8 @@ export class BlogChartService {
         }
         else {
             const chartData: PlotlyBarChartData = {
-                x:finalData.map((item: {reference: string, count:number}) => item.reference),
-                y:finalData.map((item: {reference: string, count:number}) => item.count),
+                x:data.map((item: {reference: string, count:number}) => item.reference),
+                y:data.map((item: {reference: string, count:number}) => item.count),
                 title: title,
                 height: height,
                 orientation: orientation,
@@ -67,6 +67,28 @@ export class BlogChartService {
             };
             return chartData;
         }
-        
+    }
+    
+    /**
+     * Create pie chart data to view proportion of blog posts by reference (i.e., source).
+     */
+    getReferencePieChartData(blogData: BlogPost[], title: string, uniqueReference: string[]) {
+        let data: {reference: string, count: number}[] = [];
+        for(let i=0; i < uniqueReference.length; i++) {
+            const item: string = uniqueReference[i];
+            const result: {reference: string, count: number} = {
+                reference: item,
+                count: blogData.filter((el: BlogPost) => el.reference.includes(item)).length
+            };
+            data.push(result);
+        }
+        data = chain(data).sortBy(['count','reference']).reverse().value();
+
+        const chartData: PlotlyPieChartData = {
+            labels: data.map(item => item.reference),
+            values: data.map(item => item.count),
+            title: title
+        }
+        return chartData;
     }
 }

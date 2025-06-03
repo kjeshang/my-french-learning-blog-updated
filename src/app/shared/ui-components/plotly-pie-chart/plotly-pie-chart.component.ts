@@ -28,7 +28,7 @@ export class PlotlyPieChartComponent implements OnChanges {
     },
     config:{
       displayModeBar: false,
-      responsive: true
+      responsive: false
     },
   }
 
