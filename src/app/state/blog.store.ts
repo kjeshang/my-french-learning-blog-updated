@@ -99,7 +99,8 @@ export const BlogStore = signalStore(
         return chartService.getLevelBarChart(
           blogData(),
           'Blog Posts Level',
-          400
+          400,
+          'v',
         );
       }),
       referenceBarChartData: computed(() => {
@@ -107,6 +108,7 @@ export const BlogStore = signalStore(
           blogData(),
           'Blog Post Reference',
           400,
+          'v',
           ["The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)","Learn French - Intermediate level : Master The Past Tenses by Yohann Coussot (Udemy)","Raston's TEF Canada Expression Ecrite 2025"],
         );
       }),

@@ -23,4 +23,5 @@ export interface PlotlyBarChartData {
     y: number[];
     title: string;
     height: number;
+    orientation: 'v' | 'h'
 }

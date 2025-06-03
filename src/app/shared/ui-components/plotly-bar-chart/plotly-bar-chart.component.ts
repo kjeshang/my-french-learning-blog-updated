@@ -20,6 +20,7 @@ export class PlotlyBarChartComponent implements OnChanges {
         x: [],
         y: [],
         type: 'bar',
+        orientation: 'v',
       },
     ],
     height: 0,
