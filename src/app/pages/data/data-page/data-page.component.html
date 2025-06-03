@@ -4,7 +4,11 @@
         <app-plotly-bar-chart class="sm:col-span-3" [inputData]="blogStore.referenceBarChartData()" />
     </div>
     <div class="my-2 py-2 sm:hidden grid grid-cols-1 gap-4">
-        <app-plotly-bar-chart [inputData]="blogStore.levelBarChartData()" />
-        <app-plotly-pie-chart [inputData]="blogStore.referencePieChartData()" />
+        <div class="py-2">
+            <app-plotly-bar-chart [inputData]="blogStore.levelBarChartData()" />
+        </div>
+        <div class="py-2">
+            <app-plotly-pie-chart [inputData]="blogStore.referencePieChartData()" />
+        </div>
     </div>
 </app-feature-container>
