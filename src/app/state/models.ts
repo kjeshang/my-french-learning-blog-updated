@@ -27,6 +27,12 @@ export interface PlotlyBarChartData {
     margin?: PlotlyBarChartMargin
 }
 
+export interface PlotlyPieChartData {
+    labels: string[];
+    values: number[];
+    title: string;
+}
+
 export interface PlotlyBarChartMargin {
     l: number,
     r: number,
