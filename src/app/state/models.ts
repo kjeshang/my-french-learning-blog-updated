@@ -23,5 +23,14 @@ export interface PlotlyBarChartData {
     y: (string | number)[];
     title: string;
     height: number;
-    orientation: 'v' | 'h'
+    orientation: 'v' | 'h';
+    margin?: PlotlyBarChartMargin
+}
+
+export interface PlotlyBarChartMargin {
+    l: number,
+    r: number,
+    b: number,
+    t: number,
+    pad: number,
 }

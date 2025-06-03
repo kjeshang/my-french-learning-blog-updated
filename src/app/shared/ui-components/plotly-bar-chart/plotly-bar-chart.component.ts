@@ -41,13 +41,12 @@ export class PlotlyBarChartComponent implements OnChanges {
                 pad: 10
             },
       autosize: true,
-      
+      automargin:false,
     },
     config: {
       displayModeBar: false,
       responsive: true,
     },
-    automargin:true,
   };
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -57,6 +56,9 @@ export class PlotlyBarChartComponent implements OnChanges {
       this.graph.layout.title.text = this.inputData.title;
       this.graph.height = this.inputData.height;
       this.graph.data[0].orientation = this.inputData.orientation;
+      if(this.inputData.margin) {
+        this.graph.layout.margin = this.inputData.margin
+      }
     }
   }
 }

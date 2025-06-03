@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BlogPost, PlotlyBarChartData } from "./models";
+import { BlogPost, PlotlyBarChartData, PlotlyBarChartMargin } from "./models";
 import { chain, uniq } from "lodash";
 
 @Injectable({ providedIn:'root' })
@@ -33,7 +33,7 @@ export class BlogChartService {
     /**
      * Create bar chart data to view distribution of blog posts by reference (i.e., source).
      */
-    getReferenceBarChartData(blogData: BlogPost[], title: string, height: number, orientation: 'v' | 'h', uniqueReference: string[]) {
+    getReferenceBarChartData(blogData: BlogPost[], title: string, height: number, orientation: 'v' | 'h', uniqueReference: string[], margin?: PlotlyBarChartMargin) {
         let finalData: {reference: string, count: number}[] = [];
         for(let i=0; i < uniqueReference.length; i++) {
             const item: string = uniqueReference[i];
@@ -45,14 +45,28 @@ export class BlogChartService {
         }
         finalData = chain(finalData).sortBy(['count','reference']).reverse().value();
         
-
-        const chartData: PlotlyBarChartData = {
-            x:finalData.map((item: {reference: string, count:number}) => item.count),
-            y:finalData.map((item: {reference: string, count:number}) => item.reference),
-            title: title,
-            height: height,
-            orientation: orientation,
-        };
-        return chartData;
+        if(orientation === 'h') {
+            const chartData: PlotlyBarChartData = {
+                x:finalData.map((item: {reference: string, count:number}) => item.count),
+                y:finalData.map((item: {reference: string, count:number}) => item.reference),
+                title: title,
+                height: height,
+                orientation: orientation,
+                margin: margin,
+            };
+            return chartData;
+        }
+        else {
+            const chartData: PlotlyBarChartData = {
+                x:finalData.map((item: {reference: string, count:number}) => item.reference),
+                y:finalData.map((item: {reference: string, count:number}) => item.count),
+                title: title,
+                height: height,
+                orientation: orientation,
+                margin: margin,
+            };
+            return chartData;
+        }
+        
     }
 }
