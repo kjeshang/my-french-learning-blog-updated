@@ -47,8 +47,8 @@ export class BlogChartService {
         
 
         const chartData: PlotlyBarChartData = {
-            x:finalData.map((item: {reference: string, count:number}) => item.reference),
-            y:finalData.map((item: {reference: string, count:number}) => item.count),
+            x:finalData.map((item: {reference: string, count:number}) => item.count),
+            y:finalData.map((item: {reference: string, count:number}) => item.reference),
             title: title,
             height: height,
             orientation: orientation,

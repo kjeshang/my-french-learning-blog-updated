@@ -108,7 +108,7 @@ export const BlogStore = signalStore(
           blogData(),
           'Blog Post Reference',
           400,
-          'v',
+          'h',
           ["The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)","Learn French - Intermediate level : Master The Past Tenses by Yohann Coussot (Udemy)","Raston's TEF Canada Expression Ecrite 2025"],
         );
       }),

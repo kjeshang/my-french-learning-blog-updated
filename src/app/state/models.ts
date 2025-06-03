@@ -19,8 +19,8 @@ export interface Certifications {
 }
 
 export interface PlotlyBarChartData {
-    x: string[];
-    y: number[];
+    x: (string | number)[];
+    y: (string | number)[];
     title: string;
     height: number;
     orientation: 'v' | 'h'

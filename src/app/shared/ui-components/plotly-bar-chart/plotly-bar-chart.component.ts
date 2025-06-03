@@ -33,7 +33,15 @@ export class PlotlyBarChartComponent implements OnChanges {
         },
       },
       yaxis: { visible: true },
+      margin: {
+                l: 50, // Default left margin
+                r: 50,
+                b: 50,
+                t: 50,
+                pad: 10
+            },
       autosize: true,
+      
     },
     config: {
       displayModeBar: false,
@@ -48,6 +56,7 @@ export class PlotlyBarChartComponent implements OnChanges {
       this.graph.data[0].y = this.inputData.y as never[];
       this.graph.layout.title.text = this.inputData.title;
       this.graph.height = this.inputData.height;
+      this.graph.data[0].orientation = this.inputData.orientation;
     }
   }
 }
