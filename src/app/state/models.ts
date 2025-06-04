@@ -1,10 +1,10 @@
 export interface BlogPost {
-    id: number,
-    name: string,
-    level: string,
-    date: string,
-    reference: string,
-    post: string
+    id: number;
+    name: string;
+    level: string;
+    date: string;
+    reference: string;
+    post: string;
 }
 
 export interface Certifications {
@@ -42,9 +42,9 @@ export interface PlotlyLineChartData {
 }
 
 export interface PlotlyChartMargin {
-    l: number,
-    r: number,
-    b: number,
-    t: number,
-    pad: number,
+    l: number;
+    r: number;
+    b: number;
+    t: number;
+    pad: number;
 }

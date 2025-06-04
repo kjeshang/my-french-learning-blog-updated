@@ -92,4 +92,11 @@ export class BlogChartService {
         }
         return chartData;
     }
+
+    /**
+     * Create line chart data to show frequency of posts over a period of time.
+     */
+    getBlogPostLineChartData() {
+        
+    }
 }
