@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BlogPost, PlotlyBarChartData, PlotlyBarChartMargin, PlotlyPieChartData } from "./models";
+import { BlogPost, PlotlyBarChartData, PlotlyChartMargin, PlotlyPieChartData } from "./models";
 import { chain, uniq } from "lodash";
 
 @Injectable({ providedIn:'root' })
@@ -33,7 +33,7 @@ export class BlogChartService {
     /**
      * Create bar chart data to view distribution of blog posts by reference (i.e., source).
      */
-    getReferenceBarChartData(blogData: BlogPost[], title: string, height: number, orientation: 'v' | 'h', uniqueReference: string[], margin?: PlotlyBarChartMargin) {
+    getReferenceBarChartData(blogData: BlogPost[], title: string, height: number, orientation: 'v' | 'h', uniqueReference: string[], margin?: PlotlyChartMargin) {
         let data: {reference: string, count: number}[] = [];
         for(let i=0; i < uniqueReference.length; i++) {
             const item: string = uniqueReference[i];

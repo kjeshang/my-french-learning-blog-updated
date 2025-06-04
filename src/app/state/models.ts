@@ -24,7 +24,7 @@ export interface PlotlyBarChartData {
     title: string;
     height: number;
     orientation: 'v' | 'h';
-    margin?: PlotlyBarChartMargin
+    margin?: PlotlyChartMargin
 }
 
 export interface PlotlyPieChartData {
@@ -33,7 +33,15 @@ export interface PlotlyPieChartData {
     title: string;
 }
 
-export interface PlotlyBarChartMargin {
+export interface PlotlyLineChartData {
+    x: (string | number)[];
+    y: (string | number)[];
+    title: string;
+    height: number;
+    margin?: PlotlyChartMargin;
+}
+
+export interface PlotlyChartMargin {
     l: number,
     r: number,
     b: number,
