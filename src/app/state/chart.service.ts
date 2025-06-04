@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BlogPost, PlotlyBarChartData, PlotlyChartMargin, PlotlyPieChartData } from "./models";
+import { BlogPost, PlotlyBarChartData, PlotlyChartMargin, PlotlyLineChartData, PlotlyPieChartData } from "./models";
 import { chain, uniq } from "lodash";
 
 @Injectable({ providedIn:'root' })
@@ -96,7 +96,26 @@ export class BlogChartService {
     /**
      * Create line chart data to show frequency of posts over a period of time.
      */
-    getBlogPostLineChartData() {
+    getBlogPostLineChartData(blogData: BlogPost[], title: string, height: number): PlotlyLineChartData {
+        const data: {date: string, count: number}[] = chain(blogData)
+            .groupBy((item: BlogPost) => `${item.date}`)
+            .map((items: BlogPost[]) => {
+                const {date} = items[0];
+                const count: number = items.length;
+                const result: {date: string, count:number} = {date, count};
+                return result;
+            })
+            .sortBy(['date','skill'])
+            .reverse()
+            .value();
         
+        const chartData: PlotlyLineChartData = {
+            x:data.map((item: {date: string, count:number}) => item.date),
+            y:data.map((item: {date: string, count:number}) => item.count),
+            title: title,
+            height: height,
+        };
+
+        return chartData;
     }
 }
