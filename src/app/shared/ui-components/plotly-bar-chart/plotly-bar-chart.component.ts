@@ -34,7 +34,7 @@ export class PlotlyBarChartComponent implements OnChanges {
       },
       yaxis: { visible: true },
       margin: {
-                l: 50, // Default left margin
+                l: 50,
                 r: 50,
                 b: 50,
                 t: 50,
