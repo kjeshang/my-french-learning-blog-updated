@@ -98,7 +98,7 @@ export const BlogStore = signalStore(
       levelBarChartData: computed(() => {
         return chartService.getLevelBarChart(
           blogData(),
-          'Blog Posts Level',
+          'Niveau des articles de blogue',
           400,
           'v',
         );
@@ -106,7 +106,7 @@ export const BlogStore = signalStore(
       referenceBarChartData: computed(() => {
         return chartService.getReferenceBarChartData(
           blogData(),
-          'Blog Posts Reference',
+          "Références d'articles de blogue",
           400,
           'h',
           ["The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)","Learn French - Intermediate level : Master The Past Tenses by Yohann Coussot (Udemy)","Raston's TEF Canada Expression Ecrite 2025"],
@@ -122,7 +122,7 @@ export const BlogStore = signalStore(
       referencePieChartData: computed(() => {
         return chartService.getReferencePieChartData(
           blogData(),
-          'Blog Posts Reference',
+          "Références d'articles de blogue",
           [
             {
               reference:"The Complete French Course : Learn French - Beginners by Yohann Coussot (Udemy)",
@@ -142,7 +142,7 @@ export const BlogStore = signalStore(
       blogPostLineChartData: computed(() => {
         return chartService.getBlogPostLineChartData(
           blogData(),
-          'Blog Posts Over Time',
+          'Articles de blogue au fil du temps',
           400
         );
       }),
