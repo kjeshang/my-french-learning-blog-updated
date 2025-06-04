@@ -105,8 +105,7 @@ export class BlogChartService {
                 const result: {date: string, count:number} = {date, count};
                 return result;
             })
-            .sortBy(['date','skill'])
-            .reverse()
+            .sortBy(['date'])
             .value();
         
         const chartData: PlotlyLineChartData = {

@@ -139,6 +139,13 @@ export const BlogStore = signalStore(
           ],
         );
       }),
+      blogPostLineChartData: computed(() => {
+        return chartService.getBlogPostLineChartData(
+          blogData(),
+          'Blog Posts Over Time',
+          400
+        );
+      }),
     })
   )
 );
