@@ -1,6 +1,6 @@
 # MyFrenchLearningBlogUpdated
 
-[Live Version](https://kunal-french-blog.netlify.app/)
+> [Live Version](https://kunal-french-blog.netlify.app/)
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
 
