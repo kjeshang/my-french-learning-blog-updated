@@ -1,18 +1,4 @@
 <app-feature-container>
-    <div class="my-2 py-2 hidden sm:grid grid-cols-4 gap-4">
-        <app-plotly-bar-chart class="sm:col-span-1" [inputData]="blogStore.levelBarChartData()" />
-        <app-plotly-line-chart class="sm:col-span-3" [inputData]="blogStore.blogPostLineChartData()" />
-         <app-plotly-bar-chart class="sm:col-span-4" [inputData]="blogStore.referenceBarChartData()" />
-    </div>
-    <div class="my-2 py-2 sm:hidden grid grid-cols-1 gap-4">
-        <div class="py-1">
-            <app-plotly-bar-chart [inputData]="blogStore.levelBarChartData()" />
-        </div>
-        <div class="py-1">
-            <app-plotly-line-chart [inputData]="blogStore.blogPostLineChartData()" />
-        </div>
-        <div class="py-1">
-            <app-plotly-pie-chart [inputData]="blogStore.referencePieChartData()" />
-        </div>
-    </div>
+    <div class="p-2 mt-2 font-semibold flex justify-center items-center">L'objectif de cette page est de partager mes efforts pour apprendre le français à travers des visualisations.</div>
+    <app-data-charts />
 </app-feature-container>
