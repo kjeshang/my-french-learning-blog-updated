@@ -13,10 +13,10 @@ export const routes: Routes = [
         path:"blog", component:BlogPageComponent
     },
     {
-        path:"about", component:AboutPageComponent
+        path:"data", component:DataPageComponent
     },
     {
-        path:"data", component:DataPageComponent
+        path:"about", component:AboutPageComponent
     },
 ];
 
