@@ -1,6 +1,6 @@
 <div class="m-2 p-2">
     <p class="text-3xl font-bold mt-2 mb-6 mx-2">Ma carrière dans Canada</p>
-    @for(item of careerData; track $index) {
+    @for(item of blogStore.careerData(); track $index) {
         <div class="flex flex-row space-y-2 space-x-4 mx-2 my-4">
             <div class="my-2 w-1/4">{{ item.date }}</div>
             <div class="my-2 w-3/4">
