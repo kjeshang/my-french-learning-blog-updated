@@ -5,7 +5,7 @@ import {
   withMethods,
   withState,
 } from '@ngrx/signals';
-import { BlogPost, Certifications } from './models';
+import { BlogPost, Career, Certifications } from './models';
 import { DbService } from './db.service';
 import { computed, inject } from '@angular/core';
 import { BlogPostView } from '../pages/blog/view-models';
@@ -16,6 +16,7 @@ import { BlogChartService } from './chart.service';
 type BlogState = {
   blogData: BlogPost[];
   certificationsData: Partial<Certifications>;
+  careerData: Career[];
   query: string;
   selectedBlogPost: BlogPost | undefined;
 };
@@ -23,6 +24,7 @@ type BlogState = {
 const initialBlogState: BlogState = {
   blogData: [],
   certificationsData: {},
+  careerData: [],
   query: '',
   selectedBlogPost: undefined,
 };
@@ -42,6 +44,12 @@ export const BlogStore = signalStore(
         await db.getCertificationsData();
       patchState(store, (state: BlogState) => ({
         certificationsData: certificationsData,
+      }));
+    },
+    async loadCareerData(): Promise<void> {
+      const careerData: Career[] = await db.getCareerData();
+      patchState(store, (state: BlogState)=> ({
+        careerData: careerData,
       }));
     },
     async updateQueryFilter(query: string): Promise<void> {
