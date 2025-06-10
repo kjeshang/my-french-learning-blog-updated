@@ -1,10 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @use "tailwindcss";
 
+// #region Global Styling
 html, body {
     width: 100%;
     max-width: 100%;
 }
+
+// #endregion Global Styling
+
+// #region Markdown Styling
 
 .markdown {
     width: 100%;
@@ -51,3 +56,5 @@ html, body {
 .markdown ul li {
     list-style-type: circle;
 }
+
+// #endregion Markdown Styling
