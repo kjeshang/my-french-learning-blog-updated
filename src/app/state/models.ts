@@ -18,6 +18,13 @@ export interface Certifications {
     }[],
 }
 
+export interface Career {
+    date: string;
+    position: string;
+    company: string;
+    location: string;
+}
+
 export interface PlotlyBarChartData {
     x: (string | number)[];
     y: (string | number)[];
