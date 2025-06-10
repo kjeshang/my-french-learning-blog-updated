@@ -1,27 +1,13 @@
 <div class="m-2 p-2">
     <p class="text-3xl font-bold mt-2 mb-6 mx-2">Ma carrière</p>
-    <div class="flex flex-row space-y-2 space-x-4 mx-2 my-4">
-        <div class="my-2 w-1/4 antialiased">janvier à présent</div>
-        <div class="my-2 w-3/4">
-            <p class="text-lg font-bold pb-1">Developpeur du logiciel</p>
-            <p class="font-semibold">A-Mais Technologies In. ("Amiga")</p>
-            <p class="italic text-slate-800">Vancouver du Nord, Colombie-Britannique au Canda</p>
+    @for(item of careerData; track $index) {
+        <div class="flex flex-row space-y-2 space-x-4 mx-2 my-4">
+            <div class="my-2 w-1/4">{{ item.date }}</div>
+            <div class="my-2 w-3/4">
+                <p class="text-lg font-bold pb-1">{{ item.position }}</p>
+                <p class="font-semibold">{{ item.company }}</p>
+                <p class="italic text-slate-800">{{ item.location }}</p>
+            </div>
         </div>
-    </div>
-    <div class="flex flex-row space-y-2 space-x-4 mx-2 my-4">
-        <div class="my-2 w-1/4 antialiased">septembre 2023 à janvier 2025</div>
-        <div class="my-2 w-3/4">
-            <p class="text-lg font-bold pb-1">Chef d'équipe</p>
-            <p class="font-semibold">Nestlé Nespresso</p>
-            <p class="italic text-slate-800">Burnaby, Colombie-Britannique au Canda</p>
-        </div>
-    </div>
-    <div class="flex flex-row space-y-2 space-x-4 mx-2 my-4">
-        <div class="my-2 w-1/4">juin 2021 à september 2023</div>
-        <div class="my-2 w-3/4">
-            <p class="text-lg font-bold pb-1">Spécialiste du café</p>
-            <p class="font-semibold">Nestlé Nespresso</p>
-            <p class="italic text-slate-800">Burnaby, Colombie-Britannique au Canda</p>
-        </div>
-    </div>
+    }
 </div>
