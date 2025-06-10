@@ -19,5 +19,6 @@ export class AppComponent implements OnInit {
   async loadData(): Promise<void> {
     this.blogStore.loadBlogData();
     this.blogStore.loadCertificationsData();
+    this.blogStore.loadCareerData();
   }
 }
