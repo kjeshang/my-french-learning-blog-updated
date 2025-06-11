@@ -9,7 +9,7 @@
         <nav class="mt-2 sm:mt-0 sm:block hidden">
             <ul class="flex flex-row items-center space-x-1 text-left justify-around">
                 <li class="px-2 hover:opacity-90">
-                    <a routerLink="/blog">
+                    <a routerLink="/blog" (click)="returnToBlogList()">
                         <span class="text-lg text-shadow-xs">Blog</span>
                     </a>
                 </li>
@@ -29,7 +29,7 @@
     <div class="block sm:hidden bg-gradient-to-r from-blue-400 via-white-500 to-red-400 text-white pb-1">
         <ul class="flex flex-row items-center space-x-1 text-left justify-around">
             <li class="px-2 hover:opacity-90">
-                <a routerLink="/blog">
+                <a routerLink="/blog" (click)="returnToBlogList()">
                     <span class="text-lg text-shadow-xs">Blog</span>
                 </a>
             </li>
