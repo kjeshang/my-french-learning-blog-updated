@@ -1,7 +1,7 @@
 <div class="my-2 py-2 hidden sm:grid grid-cols-4 gap-4">
-    <app-plotly-bar-chart class="sm:col-span-1" [inputData]="blogStore.levelBarChartData()" />
-    <app-plotly-line-chart class="sm:col-span-3" [inputData]="blogStore.blogPostLineChartData()" />
-    <app-plotly-bar-chart class="sm:col-span-4" [inputData]="blogStore.referenceBarChartData()" />
+    <app-plotly-bar-chart class="col-span-1 h-96" [inputData]="blogStore.levelBarChartData()" />
+    <app-plotly-line-chart class="col-span-3 h-96" [inputData]="blogStore.blogPostLineChartData()" />
+    <app-plotly-bar-chart class="col-span-4 h-96" [inputData]="blogStore.referenceBarChartData()" />
 </div>
 <div class="my-2 py-2 sm:hidden grid grid-cols-1 gap-4">
     <div class="py-1">
