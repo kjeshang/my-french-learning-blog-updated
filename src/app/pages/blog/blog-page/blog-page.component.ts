@@ -4,10 +4,11 @@ import { BlogStore } from '../../../state/blog.store';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BlogPostComponent } from '../blog-post/blog-post.component';
+import { CustomButtonComponent } from '../../../shared/ui-components/custom-button/custom-button.component';
 
 @Component({
   selector: 'app-blog-page',
-  imports: [FeatureContainerComponent, CommonModule, ReactiveFormsModule, BlogPostComponent],
+  imports: [FeatureContainerComponent, CommonModule, ReactiveFormsModule, BlogPostComponent, CustomButtonComponent],
   templateUrl: './blog-page.component.html',
   styleUrl: './blog-page.component.scss'
 })

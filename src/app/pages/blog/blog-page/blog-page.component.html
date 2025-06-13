@@ -44,9 +44,13 @@
     </div>
     } @else {
     <app-blog-post />
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor mx-5 mb-4"
+    <!-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor mx-5 mb-4"
         (click)="onSelectBlogPost(undefined)">
         Revenir en arrière
-    </button>
+    </button> -->
+    <app-custom-button
+        [buttonText]="'Revenir en arrière'"
+        (buttonClicked)="onSelectBlogPost(undefined)"
+    />
     }
 </app-feature-container>
